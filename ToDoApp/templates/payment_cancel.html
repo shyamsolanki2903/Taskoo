@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Canceled</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <style>
+        .cancel-card {
+            background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+            border-radius: 16px;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            max-width: 500px;
+            margin: 0 auto;
+            border-top: 5px solid #6b7280;
+        }
+        
+        .cancel-icon {
+            font-size: 5rem;
+            color: #6b7280;
+            margin-bottom: 20px;
+        }
+        
+        .btn-try-again {
+            background: linear-gradient(135deg, #f59e0b, #d97706);
+            box-shadow: 0 4px 10px rgba(245, 158, 11, 0.3);
+            transition: all 0.3s ease;
+        }
+        
+        .btn-try-again:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(245, 158, 11, 0.4);
+        }
+        
+        .btn-home {
+            background: linear-gradient(135deg, #6366f1, #8b5cf6);
+            box-shadow: 0 4px 10px rgba(99, 102, 241, 0.3);
+            transition: all 0.3s ease;
+        }
+        
+        .btn-home:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(99, 102, 241, 0.4);
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-5 mb-5">
+        <div class="cancel-card text-center">
+            <i class="fas fa-times-circle cancel-icon"></i>
+            <h2 class="mb-3">{{ message }}</h2>
+            <p class="lead mb-4">No worries! You can try again whenever you're ready or continue using the free version.</p>
+            
+            <div class="free-features mb-4">
+                <div class="card p-3">
+                    <h5 class="text-center mb-3">Still Available in Free Version</h5>
+                    <ul class="list-unstyled text-left mx-auto" style="max-width: 250px;">
+                        <li class="mb-2"><i class="fas fa-check text-primary mr-2"></i> Task management</li>
+                        <li class="mb-2"><i class="fas fa-check text-primary mr-2"></i> Task descriptions</li>
+                        <li class="mb-2"><i class="fas fa-check text-primary mr-2"></i> Time tracking</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="d-flex justify-content-center mt-4">
+                <a href="/buy_pro" class="btn btn-warning mr-3 btn-try-again">
+                    <i class="fas fa-crown mr-1"></i> Try Again
+                </a>
+                <a href="/" class="btn btn-primary btn-home">
+                    <i class="fas fa-home mr-1"></i> Go to Home
+                </a>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Footer -->
+    <footer class="py-3 text-center text-muted">
+        <div class="container">
+            <small>© 2025 Taskoo - Your Smart Task Partner</small>
+        </div>
+    </footer>
+</body>
+</html>

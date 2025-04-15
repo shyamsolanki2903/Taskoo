@@ -1,0 +1,20 @@
+mutation {
+  createTodo(title: "New Task", description: "This is a new task.", time: "2024-12-22 10:00 AM") {
+    todo {
+      id
+      title
+      description
+      time
+    }
+  }
+}
+
+
+query {
+  todos {
+    id
+    title
+    description
+    time
+  }
+}

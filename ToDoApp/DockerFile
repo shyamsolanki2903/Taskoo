@@ -1,0 +1,8 @@
+
+FROM quay.io/keycloak/keycloak:latest
+
+ENV KEYCLOAK_USER=admin
+ENV KEYCLOAK_PASSWORD=new-password
+
+EXPOSE 8080
+CMD ["start", "--http-port", "8080", "--spi-login-config-file=login-config.json"]

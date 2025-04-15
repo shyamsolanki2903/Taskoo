@@ -1,0 +1,7 @@
+mastercard: 5555555555554444
+cvc : Any 3 digits
+date : Any future date
+
+visa : 4000056655665556
+cvc: Any 3 digits
+date : Any future date
