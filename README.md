@@ -27,7 +27,8 @@ Before setting up the project, make sure you have the following installed:
 
 ## Project Setup
 
-### 1. Clone the Repository
+### 
+1. Clone the Repository
 Clone the project repository to your local machine:
 
 ```bash
@@ -57,6 +58,7 @@ stripe: For Stripe payment processing.
 python-dotenv: For loading environment variables from a .env file.
 requests: For HTTP requests.
 flask-graphql: For integrating GraphQL with Flask.
+
 4. Set Up Keycloak (Authentication)
 Running Keycloak Locally with Docker:
 If you want to run Keycloak locally in a Docker container, you can use the official Keycloak Docker image.
@@ -83,18 +85,20 @@ Create a Realm (e.g., master).
 Create a Client (e.g., flask-client).
 Set Valid Redirect URIs (e.g., http://localhost:5000/callback).
 Copy the Client ID and Client Secret and store them in the .env file.
+
 5. Set Up Stripe
 Create a Stripe Account:
 If you don’t have one, you can sign up at Stripe.
-
 Get API Keys:
 Go to the Stripe Dashboard and get your Secret Key and Publishable Key.
 Add the Stripe keys to your .env file.
+
 6. Configure Environment Variables
 Create a .env file in the root of the project and add the following configuration:
 
-ini
+init
 Copy code
+
 # Keycloak Configuration
 KEYCLOAK_SERVER_URL=http://localhost:8080
 REALM_NAME=master
@@ -135,7 +139,8 @@ Navigate to http://localhost:5000 in your browser.
 
 If not logged in, you will be redirected to Keycloak for authentication.
 Once logged in, you can manage your To-Do list.
-To access the Buy Pro feature, click the "Buy Pro" button which will redirect to Stripe for payment.
+To access the Buy Pro feature, click the "Buy Pro" button which will redirect to Stripe for payment
+.
 10. Payment Integration
 The Pro License functionality is implemented using Stripe. When a user clicks "Buy Pro", they will be redirected to Stripe's checkout page to complete the payment. Upon success, they will be redirected to a success page.
 
