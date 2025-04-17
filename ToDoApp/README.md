@@ -1,76 +1,167 @@
-Taskoo :
+# Flask-ToDo_with_Keycloak-Stripe
 
-Created a secure and scalable To-Do application using Flask and GraphQL. Integrated Keycloak for role-based access and Stripe for payment features. Enabled Pro plan users to upload images, and containerized the app using Docker for deployment flexibility.
+This project is a Flask-based To-Do list application with Keycloak authentication and Stripe payment integration. The project demonstrates how to use Flask with Keycloak for user authentication and integrate Stripe to handle payments for premium features.
 
-## 🎥 Live Demo
+## Features
+- User authentication via Keycloak.
+- Users can log in, add, edit, and delete to-do items.
+- Stripe integration for premium features (e.g., Pro License purchase).
+- A clean, responsive UI with Bootstrap.
 
-Watch the full walkthrough of Taskoo in action:  
-▶️ [Click here to watch the demo video](https://drive.google.com/file/d/1uy8UHCIkDS8G1CwsuyDaiKcZi3YKoifS/view?usp=drive_link)
+## Project Demosntration Video
+[CLick Here](https://drive.google.com/file/d/11sYyxpB2J_Fi7BnztSZNfyrNJ4j0-0fU/view?usp=sharing)
 
-> This demo includes:
-> - Keycloak-based login
-> - To-Do list CRUD operations
-> - Dashboard walkthrough
-> - Premium features preview (image upload)
-
-
-
-
-## 📸 Tasko Web Application Screenshots
-### 🔹 **1. Keycloak Authentication Integration**
-![image](https://github.com/user-attachments/assets/cbbed5d7-3d2f-49ef-9520-838bb0877eb5)
-
-
-### 🔹 **2. Taskoo Web Application – Dashboard _(Image Upload Disabled View)_**
-![image](https://github.com/user-attachments/assets/c303358f-5b15-4767-97ca-949ffb345545)
-
-
-### 🔹 **3. Taskoo Web Application – To-Do List View _(Image Upload Locked)_**
-
-> This view displays the core To-Do list functionality in Taskoo. Users can **Create, Read, Update, and Delete** tasks with real-time interaction.  
-> Image upload functionality is currently **restricted to premium users** and remains disabled in this version.
-
-![image](https://github.com/user-attachments/assets/e2520e67-1778-4eff-a420-225c757e2336)
-
-### 💳 **4. Taskoo – Stripe Payment Integration (Pro Plan)**
-
-> Integrated **Stripe Checkout** to enable the Pro plan for Taskoo users.  
-> Upon successful payment, users gain access to **image upload features** for profile pictures and task attachments.  
-> This screen demonstrates the secure and user-friendly **Stripe payment flow**.
-
-![image](https://github.com/user-attachments/assets/8802cd31-6704-4c9b-9b08-9800e852586c)
-
-### 💳 **5. Taskoo – Payment Cancellation Screen**
-> Integrated Stripe Checkout to handle payment cancellations for the Taskoo Pro plan.
-> Upon payment failure or user cancellation, users see a dedicated screen that clearly informs them about the cancellation status.
-> This screen demonstrates the user-friendly and secure Stripe cancellation flow.
-
-![image](https://github.com/user-attachments/assets/edb101b4-9874-43ed-ade7-3dcc9744f4d3)
-
-
-### 💳 **6. Taskoo – Stripe Payment Success (Pro Plan)**
-> Integrated Stripe Checkout to confirm successful payments for the Taskoo Pro plan.
-> Upon successful payment, users are greeted with a confirmation screen that grants them access to exclusive Pro features, such as image upload capabilities for profile pictures and task attachments.
-> This screen demonstrates the smooth and reassuring Stripe payment success flow.
-![image](https://github.com/user-attachments/assets/e65e29dd-d7c0-4b88-8e5b-c3dcf2a7f20f)
+[Click here to view the video](https://github.com/Kalparatna/Flask-ToDo_with_keycloak-stripe/blob/main/video.mp4)
 
 
 
->After a successful Stripe payment for the Taskoo Pro plan, the image upload feature is unlocked for users.
->This premium feature allows users to upload profile pictures and task attachments, enhancing their experience.
->The screen demonstrates how image upload capabilities are activated post-payment, providing users with access to exclusive Pro features.
-![image](https://github.com/user-attachments/assets/22aef10e-b783-47b8-8cd1-25f6de58196e)
 
-### 💳 **8. Taskoo – Image Upload with CRUD in ToDo (Pro Plan)**
-> Once the image upload feature is unlocked, users can attach images directly within their ToDo tasks.
-> This allows users to visually enrich their tasks by uploading relevant images.
-> Full CRUD operations (Create, Read, Update, Delete) are implemented for these images, ensuring a seamless and flexible user experience.
-![image](https://github.com/user-attachments/assets/1ed4b3b6-1cbc-45e6-9ec7-1b07f1a1bf37)
+## Prerequisites
+Before setting up the project, make sure you have the following installed:
 
-### 🔒 **9. Taskoo – Secure Logout Functionality**
-> Implemented a secure logout mechanism to ensure user session safety.
-> As soon as the user clicks on logout, their user ID is cleared, and they are redirected to the login page.
-> This ensures proper session management and prevents unauthorized access after logout.
+- Python 3.x
+- Docker (for running Keycloak and setting up the development environment)
+- Stripe account (for the payment integration)
+- Keycloak instance (either running locally or using the Docker setup)
+- Node.js and npm (for front-end dependencies, if applicable)
 
-![image](https://github.com/user-attachments/assets/7e97716e-5bf0-4224-9025-16cd8684323f)
+## Project Setup
 
+### 
+1. Clone the Repository
+Clone the project repository to your local machine:
+
+```bash
+git clone https://github.com/Kalparatna/Flask-ToDo_with_keycloak-stripe.git
+cd Flask-ToDo_with_keycloak-stripe
+2. Set Up the Virtual Environment
+It's recommended to use a virtual environment to manage your Python dependencies:
+```
+
+```bash
+Copy code
+python -m venv venv
+source venv/bin/activate  # On Windows, use 'venv\Scripts\activate'
+```
+3. Install Dependencies
+Install the required Python packages:
+
+```bash
+Copy code
+pip install -r requirements.txt
+```
+Dependencies:
+
+flask: For the Flask web application.
+flask_sqlalchemy: For SQLite database integration.
+stripe: For Stripe payment processing.
+python-dotenv: For loading environment variables from a .env file.
+requests: For HTTP requests.
+flask-graphql: For integrating GraphQL with Flask.
+
+4. Set Up Keycloak (Authentication)
+Running Keycloak Locally with Docker:
+If you want to run Keycloak locally in a Docker container, you can use the official Keycloak Docker image.
+
+Run the following command to pull and start Keycloak with Docker:
+
+```bash
+Copy code
+docker run -d -p 8080:8080 \
+  -e KEYCLOAK_USER=admin \
+  -e KEYCLOAK_PASSWORD=new-password \
+  --name keycloak \
+  quay.io/keycloak/keycloak:latest
+```
+This will start Keycloak and expose it on http://localhost:8080. The default admin credentials are:
+```
+Username: admin
+Password: new-password
+You can access the Keycloak Admin Console by navigating to http://localhost:8080 in your browser.
+```
+
+Configure Keycloak:
+Create a Realm (e.g., master).
+Create a Client (e.g., flask-client).
+Set Valid Redirect URIs (e.g., http://localhost:5000/callback).
+Copy the Client ID and Client Secret and store them in the .env file.
+
+5. Set Up Stripe
+Create a Stripe Account:
+If you don’t have one, you can sign up at Stripe.
+Get API Keys:
+Go to the Stripe Dashboard and get your Secret Key and Publishable Key.
+Add the Stripe keys to your .env file.
+
+6. Configure Environment Variables
+Create a .env file in the root of the project and add the following configuration:
+
+init
+Copy code
+
+# Keycloak Configuration
+KEYCLOAK_SERVER_URL=http://localhost:8080
+REALM_NAME=master
+CLIENT_ID=flask-client
+CLIENT_SECRET=new-password
+REDIRECT_URI=http://localhost:5000/callback
+
+# Flask Configuration
+FLASK_SECRET_KEY=your-flask-secret-key
+
+# Stripe Configuration
+STRIPE_SECRET_KEY=your-stripe-secret-key
+STRIPE_PUBLIC_KEY=your-stripe-public-key
+
+# Database Configuration
+DATABASE_URI=sqlite:///todos.db
+7. Initialize the Database
+Run the following command to initialize the SQLite database for the To-Do list:
+
+```bash
+Copy code
+python
+from app import db
+db.create_all()
+exit()
+```
+8. Running the Application
+To run the Flask application, use the following command:
+
+```bash
+Copy code
+python app.py
+```
+This will start the Flask development server on http://localhost:5000.
+
+9. Accessing the Application
+Navigate to http://localhost:5000 in your browser.
+
+If not logged in, you will be redirected to Keycloak for authentication.
+Once logged in, you can manage your To-Do list.
+To access the Buy Pro feature, click the "Buy Pro" button which will redirect to Stripe for payment.
+
+
+
+10. Payment Integration
+The Pro License functionality is implemented using Stripe. When a user clicks "Buy Pro", they will be redirected to Stripe's checkout page to complete the payment. Upon success, they will be redirected to a success page.
+
+11. Stopping Keycloak (if running in Docker)
+To stop the Keycloak container, use the following command:
+
+```bash
+Copy code
+docker stop keycloak
+docker rm keycloak
+```
+Troubleshooting
+Keycloak Authentication Issues:
+Ensure that the Client ID and Client Secret in the .env file match those configured in Keycloak.
+Verify that Keycloak is running and accessible at the configured URL (http://localhost:8080).
+Stripe Payment Issues:
+Make sure the API keys in the .env file are correct.
+Check that your Stripe account is active and in test mode for development.
+vbnet
+Copy code
+
+This `README.md` provides a step-by-step guide to setting up the Flask-ToDo_with_Keycloak-Stripe project, including prerequisites, installation, and troubleshooting. Let me know if you'd like any more details or adjustments!
