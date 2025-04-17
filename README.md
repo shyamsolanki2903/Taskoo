@@ -139,8 +139,10 @@ Navigate to http://localhost:5000 in your browser.
 
 If not logged in, you will be redirected to Keycloak for authentication.
 Once logged in, you can manage your To-Do list.
-To access the Buy Pro feature, click the "Buy Pro" button which will redirect to Stripe for payment
-.
+To access the Buy Pro feature, click the "Buy Pro" button which will redirect to Stripe for payment.
+
+
+
 10. Payment Integration
 The Pro License functionality is implemented using Stripe. When a user clicks "Buy Pro", they will be redirected to Stripe's checkout page to complete the payment. Upon success, they will be redirected to a success page.
 
