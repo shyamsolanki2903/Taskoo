@@ -16,7 +16,7 @@ Watch the full walkthrough of Taskoo in action:
 
 
 
-## 📸 Screenshots
+## 📸 Tasko Web Application Screenshots
 ### 🔹 **1. Keycloak Authentication Integration**
 ![image](https://github.com/user-attachments/assets/cbbed5d7-3d2f-49ef-9520-838bb0877eb5)
 
